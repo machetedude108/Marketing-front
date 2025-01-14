@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, RouterOutlet],
   template: `
     <div class="container mt-4">
-      <h1>Subscriber Management</h1>
+      <h1>Marketing Management</h1>
       <router-outlet></router-outlet>
     </div>
   `
