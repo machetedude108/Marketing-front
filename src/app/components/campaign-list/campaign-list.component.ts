@@ -36,6 +36,7 @@ import { Campaign } from '../../models/campaign';
             <td>
               <a [routerLink]="['/campaigns', campaign.id]" class="btn btn-info btn-sm me-2">Edit</a>
               <button (click)="deleteCampaign(campaign.id!)" class="btn btn-danger btn-sm">Delete</button>
+              <button (click)="sendCampaign(campaign.id!)" class="btn btn-success btn-sm">Send</button>
             </td>
           </tr>
         </tbody>
@@ -77,4 +78,28 @@ export class CampaignListComponent implements OnInit {
         });
     }
   }
+  sendCampaign(id: number): void {
+    const confirmed = window.confirm('Are you sure you want to send this campaign?');
+    
+    if (confirmed) {
+      this.campaignService.sendCampaign(id)
+        .subscribe({
+          next: (response) => {
+            alert('Campaign sent successfully!');
+            console.log('Campaign sent successfully:', response);
+          },
+          error: (error) => {
+            console.error('Error response:', error);
+            if (error.status === 200 || error.status === 201) {
+              alert('Campaign sent successfully!');
+            } else {
+              alert('Error sending campaign. Please try again later.');
+            }
+          }
+        });
+    } else {
+      console.log('Campaign send action canceled.');
+    }
+  }
+  
 }
