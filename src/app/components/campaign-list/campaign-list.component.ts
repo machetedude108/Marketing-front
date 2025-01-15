@@ -39,7 +39,7 @@ import { Campaign } from '../../models/campaign';
               <button (click)="sendCampaign(campaign.id!)" class="btn btn-success btn-sm">Send</button>
               <button [routerLink]="['/campaigns/schedule']"
                       [queryParams]="{campaignId: campaign.id}"
-                      class="bg-purple-500 text-white px-3 py-1 rounded">
+                      class="btn btn-purple btn-sm">
                 Schedule
               </button>
             </td>
