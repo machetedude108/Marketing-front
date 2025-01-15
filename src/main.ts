@@ -6,7 +6,6 @@ import { AppComponent } from './app/app.component';
 import { Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'azea', pathMatch: 'full' },
   { 
     path: 'subscribers', 
     loadComponent: () => import('./app/components/subscriber-list/subscriber-list.component')
@@ -32,11 +31,17 @@ const routes: Routes = [
     loadComponent: () => import('./app/components/campaign-create/campaign-create.component')
       .then(m => m.CampaignCreateComponent)
   },
+  
+  {
+    path: 'campaigns/schedule',
+    loadComponent: () => import('./app/components/campaign-scheduler/campaign-scheduler.component')
+      .then(m => m.CampaignSchedulerComponent)
+  },
   {
     path: 'campaigns/:id',
     loadComponent: () => import('./app/components/campaign-edit/campaign-edit.component')
       .then(m => m.CampaignEditComponent)
-  }
+  },
 ];
 
 bootstrapApplication(AppComponent, {
