@@ -24,4 +24,7 @@ export class AutomationService {
       {}
     );
   }
+  getWorkflows(): Observable<Workflow[]> {
+    return this.http.get<Workflow[]>(`${this.baseUrl}/workflows`);
+  }
 }

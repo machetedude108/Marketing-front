@@ -42,6 +42,11 @@ const routes: Routes = [
     loadComponent: () => import('./app/components/campaign-edit/campaign-edit.component')
       .then(m => m.CampaignEditComponent)
   },
+  {
+    path: 'workflows',
+    loadComponent: () => import('./app/components/workflow-list/workflow-list.component')
+      .then(m => m.WorkflowListComponent)
+  },
 ];
 
 bootstrapApplication(AppComponent, {

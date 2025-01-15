@@ -37,10 +37,11 @@ import { Campaign } from '../../models/campaign';
               <a [routerLink]="['/campaigns', campaign.id]" class="btn btn-info btn-sm me-2">Edit</a>
               <button (click)="deleteCampaign(campaign.id!)" class="btn btn-danger btn-sm">Delete</button>
               <button (click)="sendCampaign(campaign.id!)" class="btn btn-success btn-sm">Send</button>
-              <a routerLink="/campaigns/schedule" 
-       class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-      Schedule Campaign
-    </a>
+              <button [routerLink]="['/campaigns/schedule']"
+                      [queryParams]="{campaignId: campaign.id}"
+                      class="bg-purple-500 text-white px-3 py-1 rounded">
+                Schedule
+              </button>
             </td>
           </tr>
         </tbody>
