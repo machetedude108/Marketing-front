@@ -11,6 +11,7 @@ import { AutomationService } from '../../services/automation.service';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   template: `
+  <br/>
     <div class="container mx-auto p-6">
       <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-6">
         <div class="mb-6">
@@ -30,7 +31,7 @@ import { AutomationService } from '../../services/automation.service';
               class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               [readonly]="!!prefilledCampaignId">
           </div>
-
+<br/>
           <!-- Schedule Type -->
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-2">
@@ -44,7 +45,7 @@ import { AutomationService } from '../../services/automation.service';
               <option value="cron">Cron Expression</option>
             </select>
           </div>
-
+<br/>
           <!-- Interval Settings -->
           <div *ngIf="schedulerForm.get('scheduleType')?.value === 'interval'">
             <label class="block text-sm font-medium text-gray-700 mb-2">
@@ -59,7 +60,7 @@ import { AutomationService } from '../../services/automation.service';
               Common intervals: 1 hour (3600), 1 day (86400), 1 week (604800)
             </p>
           </div>
-
+<br/>
           <!-- Cron Expression -->
           <div *ngIf="schedulerForm.get('scheduleType')?.value === 'cron'">
             <label class="block text-sm font-medium text-gray-700 mb-2">
@@ -74,7 +75,7 @@ import { AutomationService } from '../../services/automation.service';
               Format: Seconds Minutes Hours Day-of-Month Month Day-of-Week Year
             </p>
           </div>
-
+<br/>
           <!-- Start Date/Time -->
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-2">
@@ -85,7 +86,7 @@ import { AutomationService } from '../../services/automation.service';
               formControlName="startAt"
               class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
           </div>
-
+<br/>
           <!-- End Date/Time -->
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-2">
@@ -96,7 +97,7 @@ import { AutomationService } from '../../services/automation.service';
               formControlName="endAt"
               class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
           </div>
-
+<br/>
           <!-- Repeat Count -->
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-2">
@@ -108,7 +109,7 @@ import { AutomationService } from '../../services/automation.service';
               class="w-full p-2 border rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               placeholder="Leave empty for infinite repeats">
           </div>
-
+<br/>
           <!-- Error Message -->
           <div *ngIf="errorMessage" class="text-red-500 text-sm mt-2">
             {{ errorMessage }}
@@ -216,7 +217,6 @@ export class CampaignSchedulerComponent implements OnInit {
           },
           error: (error) => {
             this.isSubmitting = false;
-            this.errorMessage = error.error?.message || 'Error scheduling campaign. Please try again.';
           }
         });
     } else {

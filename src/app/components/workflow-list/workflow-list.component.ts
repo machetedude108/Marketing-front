@@ -41,13 +41,13 @@ import { Workflow } from '../../models/schedule-request';  // Use your existing 
                 <button 
                   *ngIf="workflow.status === 'ACTIVE'"
                   (click)="stopWorkflow(workflow.id)"
-                  class="bg-red-500 text-white px-3 py-1 rounded mr-2">
+                  class="btn btn-danger btn-sm">
                   Stop
                 </button>
                 <button 
                   *ngIf="workflow.status === 'STOPPED'"
                   (click)="startWorkflow(workflow.id)"
-                  class="bg-green-500 text-white px-3 py-1 rounded">
+                  class="btn btn-success btn-sm">
                   Start
                 </button>
               </td>
