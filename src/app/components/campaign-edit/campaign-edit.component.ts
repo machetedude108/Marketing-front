@@ -24,17 +24,21 @@ import { Campaign } from '../../models/campaign';
             required
           >
         </div>
-        
+       
         <div class="mb-3">
           <label for="type" class="form-label">Type</label>
-          <input
-            type="text"
+          <select
             class="form-control"
             id="type"
             [(ngModel)]="campaign.type"
             name="type"
             required
           >
+            <option value="">Select a type</option>
+            <option *ngFor="let type of campaignTypes" [value]="type">
+              {{type}}
+            </option>
+          </select>
         </div>
 
         <div class="mb-3">
@@ -63,14 +67,18 @@ import { Campaign } from '../../models/campaign';
 
         <div class="mb-3">
           <label for="status" class="form-label">Status</label>
-          <input
-            type="text"
+          <select
             class="form-control"
             id="status"
             [(ngModel)]="campaign.status"
             name="status"
             required
           >
+            <option value="">Select a status</option>
+            <option *ngFor="let status of campaignStatuses" [value]="status">
+              {{status}}
+            </option>
+          </select>
         </div>
 
         <div class="mb-3">
@@ -99,6 +107,19 @@ export class CampaignEditComponent implements OnInit {
     status: '',
     content: ''
   };
+  
+  // Define available options for dropdowns
+  campaignTypes: string[] = [
+    'Email',
+    'Content Marketing',
+    'Event'
+  ];
+
+  campaignStatuses: string[] = [
+    'Active',
+    'Inactive'
+  ];
+
   id: number = 0;
 
   constructor(
