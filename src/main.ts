@@ -6,6 +6,11 @@ import { AppComponent } from './app/app.component';
 import { Routes } from '@angular/router';
 
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
+  },
   { 
     path: 'subscribers', 
     loadComponent: () => import('./app/components/subscriber-list/subscriber-list.component')
@@ -47,6 +52,11 @@ const routes: Routes = [
     loadComponent: () => import('./app/components/workflow-list/workflow-list.component')
       .then(m => m.WorkflowListComponent)
   },
+  {
+    path: 'dashboard',
+    loadComponent: () => import('./app/components/dashboard/dashboard.component')
+      .then(m => m.DashboardComponent)
+  }
 ];
 
 bootstrapApplication(AppComponent, {
